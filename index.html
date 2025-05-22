@@ -3,152 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>वट सावित्री व्रत की शुभकामनाएं</title>
+    <title>वट सावित्री व्रत शुभकामनाएं</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            margin: 20px;
-            background-color: #fef9e7; /* Light festive background */
-            color: #5d4037; /* Brownish text color */
+            background-color: #fff9e6;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cdn.pixabay.com/photo/2017/01/31/23/42/decorative-2028036_1280.png');
+            background-size: 30%;
+            background-repeat: repeat;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(210, 105, 30, 0.3);
+            border: 2px solid #d2691e;
+            position: relative;
+            overflow: hidden;
+        }
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://cdn.pixabay.com/photo/2016/11/22/23/44/pomegranate-1851427_1280.png') no-repeat;
+            background-size: 30%;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        h1 {
+            color: #d2691e;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            border: 2px solid #d2691e;
+            box-shadow: 0 0 15px rgba(210, 105, 30, 0.4);
         }
-        .container {
-            background-color: #fff;
-            padding: 20px;
+        .input-section {
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #fffaf0;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            display: inline-block;
+            border: 1px dashed #d2691e;
         }
-        .input-area {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 200px;
-            margin-right: 10px;
+        input {
+            padding: 12px;
+            width: 80%;
+            border: 1px solid #d2691e;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            background-color: #fffdf5;
         }
         button {
-            padding: 10px 15px;
-            background-color: #ff9800; /* Orange button */
+            padding: 12px 25px;
+            background-color: #d2691e;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         button:hover {
-            background-color: #e68900;
+            background-color: #b35917;
+            transform: translateY(-2px);
         }
-        #greetingMessage {
-            font-size: 24px;
-            font-weight: bold;
-            color: #c7522a; /* Festive color */
-            margin-top: 20px;
+        .link-section {
+            margin: 20px 0;
+            word-break: break-all;
+            display: none;
         }
-        #senderNameDisplay {
-            font-size: 20px;
-            color: #5d4037;
-            margin-top: 10px;
-        }
-        .animated-text {
-            animation: fadeInZoom 1.5s ease-in-out;
-        }
-        @keyframes fadeInZoom {
-            0% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        #generatedLink {
-            margin-top: 15px;
-            font-size: 14px;
-            word-break: break-all; /* To prevent overflow */
-        }
-        #generatedLink a {
-            color: #007bff;
+        .whatsapp-share {
+            background-color: #25D366;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: white;
             text-decoration: none;
+            margin-top: 15px;
         }
-        #generatedLink a:hover {
-            text-decoration: underline;
+        .whatsapp-share img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            border: none;
+            box-shadow: none;
+        }
+        .greeting {
+            display: none;
+            animation: fadeIn 2s, floatUp 3s infinite alternate;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .sender-name {
+            font-weight: bold;
+            color: #d2691e;
+            font-size: 28px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .firecracker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23d2691e"><path d="M11 15H13V17H11V15Z" /><path d="M14 11H16V13H14V11Z" /><path d="M11 7H13V9H11V7Z" /><path d="M17.66 3C17.41 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6 20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3M15.13 7.29L13 5.17V5.12L11.88 4L9.71 6.17L13 9.46L15.13 7.29Z" /><path d="M10.61 4.17L4.17 10.61L7.5 13.93L2 19.44V22H4.56L10.07 16.5L13.39 19.83L19.83 13.39L10.61 4.17Z" /></svg>');
+            background-size: contain;
+            opacity: 0;
+            animation: firecracker 2s forwards;
+        }
+        @keyframes firecracker {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+        .festival-text {
+            font-size: 16px;
+            color: #d2691e;
+            margin: 10px 0;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <img src="data:Vrat.jpg;base64,YOUR_BASE64_IMAGE_STRING_HERE" alt="वट सावित्री व्रत">
+        <div id="main-content">
+            <h1>वट सावित्री व्रत की शुभकामनाएं</h1>
+            <img src="Vrat.png" alt="व्रत सावित्री व्रत" id="vrat-image">
+            
+            <div class="input-section">
+                <p>अपना नाम लिखें:</p>
+                <input type="text" id="name-input" placeholder="आपका नाम">
+                <button onclick="generateLink()">शुभकामनाएं भेजें</button>
+           
+           </div>
+            
+            <div class="link-section" id="link-section">
+                <p>इस लिंक को शेयर करें:</p>
+                <a id="generated-link" href="#" target="_blank"></a>
+                <br>
+<script type="text/javascript">     atOptions = {         'key' : '885bc2d0df180d699251d2aacc3d3aa3',         'format' : 'iframe',         'height' : 60,         'width' : 468,         'params' : {}     }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/885bc2d0df180d699251d2aacc3d3aa3/invoke.js"></script>
+                <a href="#" id="whatsapp-share" class="whatsapp-share">
 
-        <div id="greetingDisplay" style="display: none;">
-            <h1 id="greetingMessage" class="animated-text">वट सावित्री व्रत की शुभकामनाएं!</h1>
-            <p id="senderNameDisplay" class="animated-text"></p>
-        </div>
-
-        <div id="inputSection">
-            <p>भेजने वाले का नाम लिखें:</p>
-            <div class="input-area">
-                <input type="text" id="senderNameInput" placeholder="आपका नाम">
-                <button onclick="generateLink()">शुभकामनाएं लिंक बनाएं</button>
+                  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xNy40NzIgMTQuMTA0Yy0uMTk2LS4xOTUtLjM5My0uMzkzLS41ODgtLjU5MS0uMTk2LS4yLS4zOTYtLjM5LS41OTUtLjU5LS4xOTctLjE5Ni0uNDk0LS4zOTQtLjgxLS4zOTQtLjMxNyAwLS41OTQuMTk2LS43OS4zOTQtLjE5Ni4yLS4zOTQuMzk0LS4zOTQuNTkgMCAuMTk2LjE5OC4zOTQuMzk0LjU5bCx5MSAxLjc3Yy4zOTQuMzkyLjg3OC41OSAxLjM2NC41OS4xOTggMCwuMzk2IDAsLjU5NC0uMS4xOTgtLjA5OC4zOTYtLjI5Ni41NTQtLjQ5My4xOTYtLjE5Ni4zOTQtMS4xNy4zOTQtMS4zNjYgMC0uMTk2LS4xLS4zOTQtLjE5Ni0uNTkxbC0xLjE3LTEuMzY2ek0xMiAwQzUuMzc0IDAgMCA1LjM3MyAwIDEyYzAgMi40Mi43NDIgNC44MyAyLjA2IDYuODNsLS4zODcgMS4xMzhzLS42NDUgMi4zNy43MTcgMy4wMWMuMzYyLjY0IDEuODcuNTU3IDMuMDk0LjM3OCAxLjE5Ny0uMTk4IDYuNjgtMy4yOTggOS41NDItNS43NDVDy4yMDQgMjAuNjEgMjQgMTYuNjUgMjQgMTJjMC02LjYyNy01LjM3My0xMi0xMi0xMnoiLz48L3N2Zz4=" alt="WhatsApp">
+                    WhatsApp पर शेयर करें
+                </a>
             </div>
-            <div id="generatedLink"></div>
+            
+            <p class="festival-text">सावित्री व्रत की पावन बेला में आपके जीवन में सुख, शांति और समृद्धि की वर्षा हो</p>
+        </div>
+        
+        <div id="greeting-section" class="greeting">
+            <h1>व्रत सावित्री व्रत की शुभकामनाएं!</h1>
+            <p>आपके लिए <span class="sender-name" id="display-name"></span> की ओर से हार्दिक शुभकामनाएं!</p>
+            <img src="Vrat.png" alt="व्रत सावित्री व्रत" style="max-width: 80%; margin: 20px auto;">
+            <p class="festival-text">माँ सावित्री आपके जीवन को आनंद, प्रेम और समृद्धि से भर दें</p>
         </div>
     </div>
 
     <script>
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+        // Check if we're showing a greeting (URL has name parameter)
+        const urlParams = new URLSearchParams(window.location.search);
+        const senderName = urlParams.get('name');
+        
+        if (senderName) {
+            // Show greeting with animation
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('greeting-section').style.display = 'block';
+            document.getElementById('display-name').textContent = senderName;
+            
+            // Create firecrackers
+            createFirecrackers();
         }
-
-        function displayGreeting() {
-            const senderName = getQueryParam('sender');
-            if (senderName) {
-                document.getElementById('greetingDisplay').style.display = 'block';
-                document.getElementById('senderNameDisplay').textContent = `प्रेषक: ${decodeURIComponent(senderName)}`;
-                document.getElementById('inputSection').style.display = 'none'; // Hide input section on greeting page
-            } else {
-                document.getElementById('inputSection').style.display = 'block';
-            }
-        }
-
+        
         function generateLink() {
-            const name = document.getElementById('senderNameInput').value.trim();
-            if (name === "") {
-                alert("कृपया अपना नाम दर्ज करें!");
+            const name = document.getElementById('name-input').value.trim();
+            if (!name) {
+                alert('कृपया अपना नाम लिखें');
                 return;
             }
-            const baseUrl = window.location.href.split('?')[0]; // Get base URL without existing query params
-            const generatedUrl = `${baseUrl}?sender=${encodeURIComponent(name)}`;
-
-            const linkDiv = document.getElementById('generatedLink');
-            linkDiv.innerHTML = `इस लिंक को शेयर करें: <a href="${generatedUrl}" target="_blank">${generatedUrl}</a> <br><button onclick="copyLink('${generatedUrl}')">कॉपी करें</button>`;
-        }
-
-        function copyLink(url) {
-            navigator.clipboard.writeText(url).then(() => {
-                alert("लिंक कॉपी हो गया!");
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                alert("लिंक कॉपी करने में विफल!");
+            
+            // Create shareable link
+            const currentUrl = window.location.href.split('?')[0];
+            const shareableLink = `${currentUrl}?name=${encodeURIComponent(name)}`;
+            
+            // Display the link
+            document.getElementById('generated-link').textContent = shareableLink;
+            document.getElementById('generated-link').href = shareableLink;
+            document.getElementById('link-section').style.display = 'block';
+            
+            // Set up WhatsApp share
+            const whatsappLink = `https://wa.me/?text=${encodeURIComponent(`व्रत सावित्री व्रत की शुभकामनाएं! ${shareableLink}`)}`;
+            document.getElementById('whatsapp-share').href = whatsappLink;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(shareableLink).then(() => {
+                alert('लिंक कॉपी हो गया है! आप इसे शेयर कर सकते हैं।');
             });
         }
-
-        // Call displayGreeting when the page loads
-        window.onload = displayGreeting;
+        
+        function shareDirect() {
+            const name = document.getElementById('name-input').value.trim();
+            if (!name) {
+                alert('कृपया अपना नाम लिखें');
+                return;
+            }
+            
+            const currentUrl = window.location.href.split('?')[0];
+            const shareableLink = `${currentUrl}?name=${encodeURIComponent(name)}`;
+            const shareText = `व्रत सावित्री व्रत की शुभकामनाएं! ${shareableLink}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'व्रत सावित्री व्रत शुभकामनाएं',
+                    text: shareText,
+                    url: shareableLink
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                    fallbackShare(shareText);
+                });
+            } else {
+                fallbackShare(shareText);
+            }
+        }
+        
+        function fallbackShare(shareText) {
+            // Try to open WhatsApp as fallback
+            window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
+        }
+        
+        function createFirecrackers() {
+            const container = document.querySelector('.container');
+            for (let i = 0; i < 20; i++) {
+                const firecracker = document.createElement('div');
+                firecracker.className = 'firecracker';
+                firecracker.style.left = `${Math.random() * 100}%`;
+                firecracker.style.top = `${Math.random() * 100}%`;
+                firecracker.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(firecracker);
+            }
+        }
     </script>
-
 </body>
 </html>
+ <script type="text/javascript">     atOptions = {         'key' : '885bc2d0df180d699251d2aacc3d3aa3',         'format' : 'iframe',         'height' : 60,         'width' : 468,         'params' : {}     }; </script> <script type="text/javascript" src="//www.highperformanceformat.com/885bc2d0df180d699251d2aacc3d3aa3/invoke.js"></script>
