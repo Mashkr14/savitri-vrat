@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>वट सावित्री व्रत की शुभकामनाएं</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #fef9e7; /* Light festive background */
+            color: #5d4037; /* Brownish text color */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        .input-area {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #ff9800; /* Orange button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        #greetingMessage {
+            font-size: 24px;
+            font-weight: bold;
+            color: #c7522a; /* Festive color */
+            margin-top: 20px;
+        }
+        #senderNameDisplay {
+            font-size: 20px;
+            color: #5d4037;
+            margin-top: 10px;
+        }
+        .animated-text {
+            animation: fadeInZoom 1.5s ease-in-out;
+        }
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        #generatedLink {
+            margin-top: 15px;
+            font-size: 14px;
+            word-break: break-all; /* To prevent overflow */
+        }
+        #generatedLink a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        #generatedLink a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="data:Vrat.jpg;base64,YOUR_BASE64_IMAGE_STRING_HERE" alt="वट सावित्री व्रत">
+
+        <div id="greetingDisplay" style="display: none;">
+            <h1 id="greetingMessage" class="animated-text">वट सावित्री व्रत की शुभकामनाएं!</h1>
+            <p id="senderNameDisplay" class="animated-text"></p>
+        </div>
+
+        <div id="inputSection">
+            <p>भेजने वाले का नाम लिखें:</p>
+            <div class="input-area">
+                <input type="text" id="senderNameInput" placeholder="आपका नाम">
+                <button onclick="generateLink()">शुभकामनाएं लिंक बनाएं</button>
+            </div>
+            <div id="generatedLink"></div>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function displayGreeting() {
+            const senderName = getQueryParam('sender');
+            if (senderName) {
+                document.getElementById('greetingDisplay').style.display = 'block';
+                document.getElementById('senderNameDisplay').textContent = `प्रेषक: ${decodeURIComponent(senderName)}`;
+                document.getElementById('inputSection').style.display = 'none'; // Hide input section on greeting page
+            } else {
+                document.getElementById('inputSection').style.display = 'block';
+            }
+        }
+
+        function generateLink() {
+            const name = document.getElementById('senderNameInput').value.trim();
+            if (name === "") {
+                alert("कृपया अपना नाम दर्ज करें!");
+                return;
+            }
+            const baseUrl = window.location.href.split('?')[0]; // Get base URL without existing query params
+            const generatedUrl = `${baseUrl}?sender=${encodeURIComponent(name)}`;
+
+            const linkDiv = document.getElementById('generatedLink');
+            linkDiv.innerHTML = `इस लिंक को शेयर करें: <a href="${generatedUrl}" target="_blank">${generatedUrl}</a> <br><button onclick="copyLink('${generatedUrl}')">कॉपी करें</button>`;
+        }
+
+        function copyLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert("लिंक कॉपी हो गया!");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert("लिंक कॉपी करने में विफल!");
+            });
+        }
+
+        // Call displayGreeting when the page loads
+        window.onload = displayGreeting;
+    </script>
+
+</body>
+</html>
